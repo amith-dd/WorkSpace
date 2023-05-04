@@ -1,11 +1,13 @@
 package com.ty.workSpace_Management.entity;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -24,9 +26,11 @@ public class EmployeeDutyAssignEntity {
 			@Parameter(name = CustomIdGenerator.VALUE_PREFIX_PARAMETER, value = "Duty_"),
 			@Parameter(name = CustomIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
 	private String employeeDutyAssignId;
-	private String employeeId;
 	private Date startDate;
 	private Date endDate;
 	private String serviceType;
+	
+	@OneToMany
+	private List<EmployeeEntity> employee;
 
 }
