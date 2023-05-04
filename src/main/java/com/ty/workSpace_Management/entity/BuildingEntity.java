@@ -27,7 +27,7 @@ public class BuildingEntity {
 			@Parameter(name = CustomIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
    private String buildingId;
 	private String buildingName;
-	private int rating;
+	private double rating;
 	@OneToOne
 	private ManagerEntity manager;
 	@OneToOne
