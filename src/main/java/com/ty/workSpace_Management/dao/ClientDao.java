@@ -47,9 +47,7 @@ public class ClientDao {
 		}
 	}
 	
-	public ClientEntity clientLogin(String email, String password) {
-		return repo.clientLogin(email, password);
-	}
+	
 	
 	
 	
