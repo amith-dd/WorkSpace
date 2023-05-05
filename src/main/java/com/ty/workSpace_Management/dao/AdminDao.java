@@ -25,7 +25,6 @@ public class AdminDao {
          if(result.isPresent()) {
         	           
            AdminEntity a=  result.get();
-           System.out.println(a);
            admin.setAdminId(adminId);
            if(admin.getAddress()==null) {
         	   admin.setAddress(a.getAddress());
