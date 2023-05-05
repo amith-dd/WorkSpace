@@ -49,9 +49,6 @@ public class EmployeeDao {
 
 	}
 	
-	public EmployeeEntity employeeLogin(String EmployeeEmail, String EmployeePassword) {
-		return repo.login(EmployeeEmail, EmployeePassword);
-	}
 	
 	public List<EmployeeEntity> employeesBasedOnRole(String role){
 		return repo.employeesBasedOnRole(role);
