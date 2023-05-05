@@ -9,8 +9,6 @@ import com.ty.workSpace_Management.entity.EmployeeEntity;
 
 public interface EmployeeRepo extends JpaRepository<EmployeeEntity, String> {
 	
-	@Query(" select e from EmployeeEntity e where e.employeeEmail = ?1 and e.employeePassword = ?2 ")
-	public EmployeeEntity login(String EmployeeEmail, String EmployeePassword);
 	
 	@Query(" select e from EmployeeEntity e where e.employeeRole=?1 ")
 	public List<EmployeeEntity> employeesBasedOnRole(String role);
