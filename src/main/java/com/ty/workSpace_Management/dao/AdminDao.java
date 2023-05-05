@@ -2,6 +2,7 @@ package com.ty.workSpace_Management.dao;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ty.workSpace_Management.entity.AdminEntity;
@@ -9,6 +10,8 @@ import com.ty.workSpace_Management.repo.AdminRepo;
 
 @Repository
 public class AdminDao {
+	
+	@Autowired
 	private AdminRepo repo;
 	
 	
@@ -22,10 +25,13 @@ public class AdminDao {
          if(result.isPresent()) {
         	           
            AdminEntity a=  result.get();
+           System.out.println(a);
            admin.setAdminId(adminId);
            if(admin.getAddress()==null) {
         	   admin.setAddress(a.getAddress());
            }
+          
+        	   
            if(admin.getAdminEmail()==null) {
         	   admin.setAdminEmail(a.getAdminEmail());
            }
@@ -34,6 +40,9 @@ public class AdminDao {
            }
            if(admin.getAdminName()==null) {
         	   admin.setAdminName(a.getAdminName());
+           }
+           if(admin.getAdminPhone()==0) {
+        	   admin.setAdminPhone(a.getAdminPhone());
            }
 		              
 		 
