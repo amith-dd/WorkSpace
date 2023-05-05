@@ -32,7 +32,6 @@ public class AdminEntity {
 	private String adminEmail;
 	private long adminPhone;
 	private String adminPwd;
-	
 	@OneToOne
 	private AddressEntity address;
 	
