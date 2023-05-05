@@ -49,10 +49,7 @@ public class EmployeeDao {
 
 	}
 	
-<<<<<<< HEAD
-	
-=======
->>>>>>> ca90ff15a3727992d2f5fb8909fb52b3c28905d5
+
 	
 	public List<EmployeeEntity> employeesBasedOnRole(String role){
 		return repo.employeesBasedOnRole(role);

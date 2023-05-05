@@ -19,8 +19,7 @@ import lombok.Data;
 @Data
 public class FloorEntity {
 	
-<<<<<<< HEAD
-=======
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "client_seq")
 	@GenericGenerator(name = "client_seq", strategy = "com.ty.workSpace_Management.entity.util.CustomIdGenerator", parameters = {
@@ -31,5 +30,4 @@ public class FloorEntity {
 	@OneToMany
 	private List<WorkSpaceEntity> workSpace;
 
->>>>>>> 840b92027a3d78eba7c1998fcadf98273b80c305
 }
