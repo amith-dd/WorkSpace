@@ -1,5 +1,6 @@
 package com.ty.workSpace_Management.entity;
 
+
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -17,6 +18,7 @@ import lombok.Data;
 
 @Entity
 @Data
+
 public class FloorEntity {
 	
 
