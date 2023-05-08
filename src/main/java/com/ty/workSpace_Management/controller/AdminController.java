@@ -29,7 +29,7 @@ public class AdminController {
 	
 	@PostMapping
 	@ApiOperation(value = "save  Admin", notes = "Api is used to save Admin ")
-	@ApiResponses({@ApiResponse(code=201,message="Sucessfully  Vendor is saved")})
+	@ApiResponses({@ApiResponse(code=200,message="Sucessfully  Vendor is saved")})
 	public ResponseEntity<ResponseStructure<AdminDto>> signupAdmin(@Valid @RequestBody AdminEntity admin) {
 		return service.saveAdmin(admin);
 	}
