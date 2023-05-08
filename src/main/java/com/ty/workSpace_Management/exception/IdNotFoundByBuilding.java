@@ -1,10 +1,10 @@
 package com.ty.workSpace_Management.exception;
 
-public class IdNotFoundByAdmin extends RuntimeException {
+public class IdNotFoundByBuilding extends RuntimeException {
 
 	String message="id is not found for admin";
 
-	public IdNotFoundByAdmin(String message) {
+	public IdNotFoundByBuilding(String message) {
 		this.message = message;
 	}
 
@@ -12,7 +12,7 @@ public class IdNotFoundByAdmin extends RuntimeException {
 		return message;
 	}
 
-	public IdNotFoundByAdmin() {
+	public IdNotFoundByBuilding() {
 		super();
 	}
 
