@@ -42,12 +42,7 @@ public class BuildingDao {
            if(building.getBuildingName()==null) {
         	   building.setBuildingName(a.getBuildingName());
            }
-           if(building.getFloors()==null) {
-        	   building.setFloors(a.getFloors());
-           }
-           if(building.getService()==null) {
-        	   building.setService(a.getService());
-           }
+          
           building.setRating(a.getRating());
 		              
 		 
@@ -80,30 +75,39 @@ public class BuildingDao {
 	
 	public List<BuildingEntity> listOfbuilingBasedOnRating(){
 		List<BuildingEntity>list=repo.fingByRating();
-		if(list!=null) {
-			return list;
+		if(list.isEmpty()) {
+			return null;
 		}
 		else
-			return null;
+			return list;
 	}
 	
 	
 	public List<BuildingEntity>listOfBuilding(){
 		List<BuildingEntity>list=repo.findAll();
-		if(list!=null) {
-			return list;
+		if(list.isEmpty()) {
+			return null;
 		}
 		else
-			return null;
+			return list;
 	}
 	
 	public List<BuildingEntity>listOfBuildingBasedOnPincode(int pincode){
 		List<BuildingEntity>list=repo.findBuilinglistBasedOnPin(pincode);
-		if(list!=null) {
-			return list;
+		if(list.isEmpty()) {
+			return null;
 		}
 		else
+			return list;
+	}
+	
+	public List<BuildingEntity>listOfBuildingBasedOnName(String name){
+		List<BuildingEntity>list=repo.findbyName(name);
+		if(list.isEmpty()) {
 			return null;
+		}
+		else
+			return list;
 	}
 	
 	
