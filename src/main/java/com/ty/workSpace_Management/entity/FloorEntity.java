@@ -3,6 +3,7 @@ package com.ty.workSpace_Management.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,7 +30,7 @@ public class FloorEntity {
 			@Parameter(name = CustomIdGenerator.VALUE_PREFIX_PARAMETER, value = "Floor_"),
 			@Parameter(name = CustomIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
 	private String floorId;
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<WorkSpaceEntity> workSpace;
 
 }
