@@ -1,5 +1,6 @@
 package com.ty.workSpace_Management.dao;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,8 +53,9 @@ public class WorkSpaceEntityDao {
 
 	}
 
-	public WorkSpaceEntity getByCapacity(int workSpaceCapacity) {
-		return repo.getByCapacity(workSpaceCapacity);
+	public List<WorkSpaceEntity> getByCapacity(int workSpaceCapacity) {
+		String available="AVAILABLE";
+		return repo.getByCapacity(workSpaceCapacity, available);
 
 	}
 
