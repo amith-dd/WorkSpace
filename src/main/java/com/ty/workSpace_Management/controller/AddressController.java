@@ -25,6 +25,7 @@ import io.swagger.annotations.ApiResponses;
 public class AddressController {
 	@Autowired
 	private AddressService service;
+	
 	@ApiOperation(value = "Save Address", notes = "API is used to save Address")
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "succesfully created"),
 			@ApiResponse(code = 400, message = "Id not found for the given address ID") })
@@ -32,6 +33,7 @@ public class AddressController {
 	public ResponseEntity<ResponseStructure<AddressEntity>> saveAddress(@Valid @RequestBody AddressEntity address,@RequestParam String id){
 		return service.saveAddress(address, id);
 	}
+	
 	@ApiOperation(value = "Update Address", notes = "API is used to update Address for given address Id")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "succesfully updated"),
 			@ApiResponse(code = 400, message = "Id not found for the given address ID") })
@@ -39,6 +41,7 @@ public class AddressController {
 	public ResponseEntity<ResponseStructure<AddressEntity>> updateAddress(@Valid @RequestBody AddressEntity address,@RequestParam String addressId){
 		return service.updateAddress(address, addressId);			
 	}
+	
 	@ApiOperation(value = "get address", notes = "API is used to get address for address Id")
 	@ApiResponses(value = { @ApiResponse(code = 302, message = "address is fetched"),
 			@ApiResponse(code = 400, message = "Id not found for the given address ID") })

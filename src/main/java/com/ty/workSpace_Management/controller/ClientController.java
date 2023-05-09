@@ -26,6 +26,7 @@ import io.swagger.annotations.ApiResponses;
 public class ClientController {
 	@Autowired
 	private ClientService service;
+	
 	@ApiOperation(value = "Save client", notes = "API is used to save client")
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "succesfully created"),
 			@ApiResponse(code = 400, message = "Id not found for the given client ID") })

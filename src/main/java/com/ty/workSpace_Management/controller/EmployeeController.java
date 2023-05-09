@@ -28,6 +28,7 @@ import io.swagger.annotations.ApiResponses;
 public class EmployeeController {
 	@Autowired
 	private EmployeeService service;
+	
 	@ApiOperation(value = "Save employee", notes = "API is used to save employee")
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "succesfully created"),
 			@ApiResponse(code = 400, message = "Id not found for the given employee ID") })
@@ -35,6 +36,7 @@ public class EmployeeController {
 	public ResponseEntity<ResponseStructure<EmployeeDto>> saveEmployee(@Valid @RequestBody EmployeeEntity employee){
 		return service.saveEmployee(employee);
 	}
+	
 	@ApiOperation(value = "employee login", notes = "API is used to login employee")
 	@ApiResponses(value = { @ApiResponse(code = 302, message = "employee logged in"),
 			@ApiResponse(code = 400, message = "Id not found for the given employee email and password") })
@@ -42,6 +44,7 @@ public class EmployeeController {
 	public ResponseEntity<ResponseStructure<EmployeeDto>> logInEmployee(@RequestParam String email,@RequestParam String pwd){
 		return service.logIn(email, pwd);
 	}
+	
 	@ApiOperation(value = "Update employee", notes = "API is used to update employee for given employee Id")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "succesfully updated"),
 			@ApiResponse(code = 400, message = "Id not found for the given client ID") })
@@ -49,6 +52,7 @@ public class EmployeeController {
 	public ResponseEntity<ResponseStructure<EmployeeDto>> updateEmployee( @RequestBody EmployeeEntity employee,@RequestParam String employeeId){
 		return service.updateEmployee(employee, employeeId);
 	}
+	
 	@ApiOperation(value = "get employee", notes = "API is used to get employee for employee mail")
 	@ApiResponses(value = { @ApiResponse(code = 302, message = "employee is fetched"),
 			@ApiResponse(code = 400, message = "Id not found for the given employee email") })
@@ -56,6 +60,7 @@ public class EmployeeController {
 	public ResponseEntity<ResponseStructure<EmployeeDto>> getEmployeeByEmail(@RequestParam String email){
 		return service.getEmployeeByEmail(email);
 	}
+	
 	@ApiOperation(value = "get employee", notes = "API is used to get employee for employee Id")
 	@ApiResponses(value = { @ApiResponse(code = 302, message = "employee is fetched"),
 			@ApiResponse(code = 400, message = "Id not found for the given employee ID") })
@@ -63,6 +68,7 @@ public class EmployeeController {
 	public ResponseEntity<ResponseStructure<EmployeeDto>> findEmployeeById(@RequestParam String id){
 		return service.findEmployeeById(id);
 	}
+	
 	@ApiOperation(value = "get employee", notes = "API is used to get employees based on role")
 	@ApiResponses(value = { @ApiResponse(code = 302, message = "employees are fetched"),
 			@ApiResponse(code = 400, message = "employees not found for the given role") })

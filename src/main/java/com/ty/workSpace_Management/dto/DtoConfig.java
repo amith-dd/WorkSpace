@@ -6,13 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.ty.workSpace_Management.entity.AdminEntity;
-<<<<<<< HEAD
+
+import com.ty.workSpace_Management.entity.BuildingEntity;
 import com.ty.workSpace_Management.entity.ClientEntity;
 import com.ty.workSpace_Management.entity.EmployeeEntity;
-=======
-import com.ty.workSpace_Management.entity.BuildingEntity;
 import com.ty.workSpace_Management.entity.ManagerEntity;
->>>>>>> 8c2682d8d3963538b2886ce244486f0e63246dd9
+
 
 @Component
 public class DtoConfig {
@@ -39,7 +38,7 @@ public class DtoConfig {
 		
 	}
 	
-<<<<<<< HEAD
+
 	public ClientDto clientEntityToDto(ClientEntity client1) {
 		client.setAddress(client1.getAddress());
 		client.setBooking(client1.getBookings());
@@ -58,7 +57,7 @@ public class DtoConfig {
 		employee.setEmployeeRole(employee1.getEmployeeRole());
 		return employee;
 	}
-=======
+
 	
 	public ManagerDto getManager(ManagerEntity manager1) {
 		manager.setAddress(manager1.getAddress());
@@ -82,7 +81,7 @@ public class DtoConfig {
 	}
 	
  
->>>>>>> 8c2682d8d3963538b2886ce244486f0e63246dd9
+
 	
 	
 	

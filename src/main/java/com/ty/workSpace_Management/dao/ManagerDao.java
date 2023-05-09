@@ -9,6 +9,7 @@ import com.ty.workSpace_Management.repo.ManagerRepo;
 
 @Repository
 public class ManagerDao {
+	
 	private ManagerRepo repo;
 	
 	

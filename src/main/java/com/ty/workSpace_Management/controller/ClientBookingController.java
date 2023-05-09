@@ -24,6 +24,7 @@ import io.swagger.annotations.ApiResponses;
 public class ClientBookingController {
 	@Autowired
 	private ClientBookingService service;
+	
 	@ApiOperation(value = "Save clientbooking", notes = "API is used to save client booking")
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "succesfully saved"),
 			@ApiResponse(code = 400, message = "Id not found for the given clientbooking ID") })
@@ -31,6 +32,7 @@ public class ClientBookingController {
 	public ResponseEntity<ResponseStructure<ClientBookingEntity>> saveClientBooking(@Valid @RequestBody ClientBookingEntity clientbooking,@RequestParam String clientId,@RequestParam String workSpaceId){
 		return service.saveClientBooking(workSpaceId,clientId, clientbooking);
 	}
+	
 	@ApiOperation(value = "Update clientBooking", notes = "API is used to update clientbooking for given clientbooking Id")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "succesfully updated"),
 			@ApiResponse(code = 400, message = "Id not found for the given client booking ID") })
@@ -39,6 +41,7 @@ public class ClientBookingController {
 		return service.updateClientBooking(clientBooking, id);
 				
 	}
+	
 	@ApiOperation(value = "Update clientBooking", notes = "API is used to set rating for clientbooking for given clientbooking Id")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "succesfully updated"),
 			@ApiResponse(code = 400, message = "Id not found for the given client booking ID") })
