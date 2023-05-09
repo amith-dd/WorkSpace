@@ -48,6 +48,7 @@ public class ClientDao {
 		}
 	}
 	
+
 	public ClientEntity findClientByEmail(String mail) {
 		ClientEntity client = repo.findClientByEmail(mail);
 		if(client!=null) {

@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -27,6 +29,8 @@ public class BuildingEntity {
 			@Parameter(name = CustomIdGenerator.VALUE_PREFIX_PARAMETER, value = "Build_"),
 			@Parameter(name = CustomIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
    private String buildingId;
+	@NotBlank(message = "name cannot be blank")
+	@NotNull(message = "name cannot be null")
 	private String buildingName;
 	private double rating;
 	@OneToOne

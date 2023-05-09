@@ -2,6 +2,8 @@ package com.ty.workSpace_Management.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +32,7 @@ public class ServiceController {
 	@ApiOperation(value = "save  service", notes = "Api is used to save service ")
 	@ApiResponses({@ApiResponse(code=201,message="Sucessfully  service is saved"),
 		@ApiResponse(code=404,message="  building id is not found to add service")})
-	public ResponseEntity<ResponseStructure<ServiceEntity>> saveService(@RequestBody ServiceEntity service1,@RequestParam  String buildingId) {
+	public ResponseEntity<ResponseStructure<ServiceEntity>> saveService(@Valid @RequestBody ServiceEntity service1,@RequestParam  String buildingId) {
 		return service.saveService(service1, buildingId);
 	}
 	
