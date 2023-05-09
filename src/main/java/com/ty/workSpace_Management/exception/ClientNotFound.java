@@ -9,7 +9,11 @@ public class ClientNotFound extends RuntimeException{
 	public String getMessage() {
 		return message;
 	}
-
+	
+	
+	public ClientNotFound() {
+		super();
+	}
 
 
 	public ClientNotFound(String message) {
