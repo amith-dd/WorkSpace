@@ -23,10 +23,10 @@ public class FloorEntity {
 	
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "client_seq")
-	@GenericGenerator(name = "client_seq", strategy = "com.ty.workSpace_Management.entity.util.CustomIdGenerator", parameters = {
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "floor_seq")
+	@GenericGenerator(name = "floor_seq", strategy = "com.ty.workSpace_Management.entity.util.CustomIdGenerator", parameters = {
 			@Parameter(name = CustomIdGenerator.INCREMENT_PARAM, value = "50"),
-			@Parameter(name = CustomIdGenerator.VALUE_PREFIX_PARAMETER, value = "Client_"),
+			@Parameter(name = CustomIdGenerator.VALUE_PREFIX_PARAMETER, value = "Floor_"),
 			@Parameter(name = CustomIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
 	private String floorId;
 	@OneToMany
