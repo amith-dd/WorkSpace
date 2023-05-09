@@ -13,7 +13,7 @@ public class ClientBookingDao {
 	@Autowired
 	private ClientBookingRepo repo;
 	
-	public ClientBookingEntity saveClientBooking(ClientBookingEntity clientBooking,String clientId,String managerId) {
+	public ClientBookingEntity saveClientBooking(ClientBookingEntity clientBooking ) {
 		return repo.save(clientBooking);
 	}
 	

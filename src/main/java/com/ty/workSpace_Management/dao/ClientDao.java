@@ -3,10 +3,11 @@ package com.ty.workSpace_Management.dao;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.ty.workSpace_Management.entity.ClientEntity;
 import com.ty.workSpace_Management.repo.ClientRepo;
-
+@Repository
 public class ClientDao {
 	@Autowired
 	private ClientRepo repo;
@@ -43,6 +44,16 @@ public class ClientDao {
 		if(client.isPresent()) {
 			return client.get();
 		}else {
+			return null;
+		}
+	}
+	
+	public ClientEntity findClientByEmail(String mail) {
+		ClientEntity client = repo.findClientByEmail(mail);
+		if(client!=null) {
+			return client;
+		}
+		else {
 			return null;
 		}
 	}
