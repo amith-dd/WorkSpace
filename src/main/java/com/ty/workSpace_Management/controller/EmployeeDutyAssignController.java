@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,6 +23,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 @RestController
+@RequestMapping("/duty")
 public class EmployeeDutyAssignController {
 
 	@Autowired
@@ -31,24 +33,25 @@ public class EmployeeDutyAssignController {
 	@ApiOperation(value = "save  employeeDutyAssign", notes = "Api is used to save employeeDutyAssign ")
 	@ApiResponses({ @ApiResponse(code = 201, message = "Sucessfully  employeeDutyAssign is saved") })
 	public ResponseEntity<ResponseStructure<EmployeeDutyAssignEntity>> saveEmployeeDutyAssign(
-			@Valid @RequestBody String managerId, List<String> id) {
-		return duty.saveEmployeeDuttyAssign(managerId, id);
+			 @RequestParam String managerId, @RequestParam String clientID,  @RequestParam String employeeId ) {
+		return duty.saveEmployeeDuttyAssign(managerId,clientID,employeeId);
 	}
 
 	@PutMapping
-	@ApiOperation(value = "update  employeeDutyAssign", notes = "Api is used to update employeeDutyAssign ")
-	@ApiResponses({ @ApiResponse(code = 201, message = "Sucessfully  employeeDutyAssign is updated"),
-			@ApiResponse(code = 404, message = "  floor id is not found to update") })
-	public ResponseEntity<ResponseStructure<EmployeeDutyAssignEntity>> updateEmployeeDutyAssign(
-			@RequestParam String dutyAssignId, @RequestParam List<String> id) {
-		return duty.updateEmployeeDuttyAssign(dutyAssignId, id);
+	@ApiOperation(value = "end  employeeDutyAssign", notes = "Api is used to end employeeDutyAssign ")
+	@ApiResponses({ @ApiResponse(code = 201, message = "Sucessfully  employeeDutyAssign is ended"),
+			@ApiResponse(code = 404, message = "  employeeDutyAssign id is not found to update") })
+	public ResponseEntity<ResponseStructure<EmployeeDutyAssignEntity>> endWork(
+			@RequestParam String dutyAssignId ) {
+		return duty.endWork(dutyAssignId);
 	}
 
 	@GetMapping
 	@ApiOperation(value = "get employeeDutyAssign", notes = "Api is used to fetch employeeDutyAssign ")
-	@ApiResponses({ @ApiResponse(code = 201, message = "Sucessfully  employeeDutyAssign is fetched") })
+	@ApiResponses({ @ApiResponse(code = 201, message = "Sucessfully  employeeDutyAssign is fetched"),
+		@ApiResponse(code = 404, message = "  employeeDutyAssign id is not found to update")})
 	public ResponseEntity<ResponseStructure<EmployeeDutyAssignEntity>> getEmployeeDutyAssign(
-			@Valid @RequestParam String employeeDutyAssignId) {
+			 @RequestParam String employeeDutyAssignId) {
 		return duty.getEmployeeDuty(employeeDutyAssignId);
 	}
 
