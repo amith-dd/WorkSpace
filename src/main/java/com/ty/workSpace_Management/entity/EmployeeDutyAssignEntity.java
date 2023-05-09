@@ -13,12 +13,14 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
+import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.ty.workSpace_Management.entity.util.CustomIdGenerator;
 
 import lombok.Data;
 
+@Component
 @Entity
 @Data
 public class EmployeeDutyAssignEntity {

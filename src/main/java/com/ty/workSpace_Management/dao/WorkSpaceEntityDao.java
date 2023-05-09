@@ -54,7 +54,8 @@ public class WorkSpaceEntityDao {
 	}
 
 	public List<WorkSpaceEntity> getByCapacity(int workSpaceCapacity) {
-		return repo.getByCapacity(workSpaceCapacity);
+		String available="AVAILABLE";
+		return repo.getByCapacity(workSpaceCapacity, available);
 
 	}
 

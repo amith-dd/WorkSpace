@@ -93,7 +93,7 @@ throw new IdNotFoundByManager("manager id "+managerId+" is not available");
 			throw new IdNotFoundByWorkSpace("workspace is not available to update");
 	}
 
-	public ResponseEntity<ResponseStructure<List<WorkSpaceEntity>>> getWorkSpaceByCapacity(WorkSpaceEntity workSpaceEntity,
+	public ResponseEntity<ResponseStructure<List<WorkSpaceEntity>>> getWorkSpaceByCapacity(
 			int a) {
 		 int count=0;
 			//logic for range
@@ -103,6 +103,14 @@ throw new IdNotFoundByManager("manager id "+managerId+" is not available");
 			else if(a>=4&&a<=10) {
 				count=10;
 			}
+			else if(a>=11&&a<=50) {
+				count=50;
+			}else if(a>=51&&a<=100) {
+				count=100;
+			}else if(a>=101&&a<=200) {
+				count=200;
+			}else
+				count=200;
 			
 		
 	        List<WorkSpaceEntity>list=dao.getByCapacity(a);
