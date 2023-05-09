@@ -10,6 +10,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -28,10 +35,21 @@ public class AdminEntity {
 			@Parameter(name = CustomIdGenerator.VALUE_PREFIX_PARAMETER, value = "Admin_"),
 			@Parameter(name = CustomIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
 	private String adminId;
+	
+	@NotBlank(message = "name cannot be blank")
+	@NotNull(message = "name cannot be null")
 	private String adminName;
 	@Column(unique = true)
+	@Email(regexp = "[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\\.[a-z]{2,}", message = "invalid email ")
+
 	private String adminEmail;
+	@Min(value= 6000000000l, message = " phone number must be valid" )
+	@Max(value= 9999999999l, message = " phone number must be valid" )
 	private long adminPhone;
+	@NotBlank(message = "Password is required")
+	@Size(min = 6, max = 20, message = "Password must be between 6 and 20 characters")
+	@Pattern(regexp = "^(?=.[a-zA-Z])(?=.\\d)(?=.[@#$%^&+=!]).$", message = "must contain at least one letter, one number, one special character")
+	private String clientPassword;
 	private String adminPwd;
 	@OneToOne(cascade = CascadeType.ALL)
 	private AddressEntity address;
@@ -43,3 +61,16 @@ public class AdminEntity {
 	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

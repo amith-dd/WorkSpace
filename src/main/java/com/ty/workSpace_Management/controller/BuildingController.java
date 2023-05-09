@@ -2,6 +2,8 @@ package com.ty.workSpace_Management.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,7 +38,7 @@ public class BuildingController {
 	@ApiOperation(value = "save  building", notes = "Api is used to save building ")
 	@ApiResponses({ @ApiResponse(code = 201, message = "Sucessfully  building is saved"),
 			@ApiResponse(code = 404, message = "  admin id is not found to save building") })
-	public ResponseEntity<ResponseStructure<BuildingDto>> saveBuilding(@RequestBody BuildingEntity building,
+	public ResponseEntity<ResponseStructure<BuildingDto>> saveBuilding(@Valid @RequestBody BuildingEntity building,
 			@RequestParam String adminId) {
 		return service.saveBuilding(building, adminId);
 	}
