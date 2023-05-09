@@ -21,6 +21,7 @@ import com.ty.workSpace_Management.entity.WorkSpaceEntity;
 import com.ty.workSpace_Management.entity.util.ResponseStructure;
 import com.ty.workSpace_Management.exception.ClientBookingNotFound;
 import com.ty.workSpace_Management.exception.ClientNotFound;
+import com.ty.workSpace_Management.exception.IdNotFoundByBuilding;
 
 @Service
 public class ClientBookingService {
@@ -67,7 +68,8 @@ public class ClientBookingService {
 				return new ResponseEntity<ResponseStructure<ClientBookingEntity>>(structure, HttpStatus.CREATED);
 
 			}
-			// throw exception for workspacenot found
+			throw new IdNotFoundByBuilding("building not found ");
+			
 
 		}
 		throw new ClientNotFound("client not found for " + clientId);
