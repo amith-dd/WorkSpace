@@ -17,7 +17,7 @@ public interface BuildingRepo extends JpaRepository<BuildingEntity, String> {
 	public List<BuildingEntity>findBuilinglistBasedOnPin(@Param("pincode") int pincode);
 	
 	
-	@Query("select a from  BuildingEntity a where a.buildingName = ?")
+	@Query("select a from  BuildingEntity a where a.buildingName= ?1")
 	public List<BuildingEntity> findbyName(String name);
 
 }
