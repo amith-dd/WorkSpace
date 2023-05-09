@@ -27,6 +27,6 @@ public class ManagerEntity {
 	private String managerEmail;
 	private long managerPhone;
 	private String managerPwd;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private AddressEntity address;
 }

@@ -2,6 +2,7 @@ package com.ty.workSpace_Management.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,10 +33,10 @@ public class AdminEntity {
 	private String adminEmail;
 	private long adminPhone;
 	private String adminPwd;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private AddressEntity address;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<BuildingEntity>buildings;
 	
 	

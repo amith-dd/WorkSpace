@@ -12,7 +12,7 @@ public class ManagerDao {
 	private ManagerRepo repo;
 	
 	
-	public ManagerEntity Manager(ManagerEntity manager) {
+	public ManagerEntity saveManager(ManagerEntity manager) {
 	   return	repo.save(manager);
 	}
 	

@@ -30,13 +30,13 @@ public class BuildingEntity {
 	private double rating;
 	@OneToOne
 	private ManagerEntity manager;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private AddressEntity address;
 	@OneToMany
 	private List<ServiceEntity>service;
 	@OneToMany
 	private List<EmployeeEntity>employess;
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<FloorEntity>floors;
 	
 }

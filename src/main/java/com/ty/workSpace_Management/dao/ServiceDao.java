@@ -21,11 +21,11 @@ public class ServiceDao {
 	
 	public List<ServiceEntity> listOfServicesBasedONServiceName(String serviceName){
 		List<ServiceEntity>list=repo.findServiceByName(serviceName);
-		if(list!=null) {
-			return list;
+		if(list.isEmpty()) {
+			return null;
 		}
 		else
-			return null;
+			return list;
 	}
 
 }
