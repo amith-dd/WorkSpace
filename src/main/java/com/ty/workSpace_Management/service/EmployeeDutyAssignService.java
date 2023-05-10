@@ -38,10 +38,10 @@ public class EmployeeDutyAssignService {
 	@Autowired
 	private EmployeeDao employeeDao;
 
-	@Autowired
-	private EmployeeDutyAssignEntity employeeDutyAssignEntity;
 
-	public ResponseEntity<ResponseStructure<EmployeeDutyAssignEntity>> saveEmployeeDuttyAssign(String managerId, String clientId,String empID
+
+	public ResponseEntity<ResponseStructure<EmployeeDutyAssignEntity>> saveEmployeeDuttyAssign(
+			String managerId, String clientId,String empID, EmployeeDutyAssignEntity employeeDutyAssignEntity
 			) {
 
 		ManagerEntity manager = managerDao.getManagerByID(managerId);
@@ -112,11 +112,15 @@ public class EmployeeDutyAssignService {
 	public ResponseEntity<ResponseStructure<EmployeeDutyAssignEntity>> getEmployeeDuty(String dutyAssignId) {
 
 		EmployeeDutyAssignEntity assign = dao.findDutyAssign(dutyAssignId);
-		ResponseStructure<EmployeeDutyAssignEntity> responseStructure = new ResponseStructure<>();
-		responseStructure.setStatus(HttpStatus.OK.value());
-		responseStructure.setMessage("Successfully fetched");
-		responseStructure.setData(assign);
-		return new ResponseEntity<ResponseStructure<EmployeeDutyAssignEntity>>(responseStructure, HttpStatus.OK);
+		if(assign!=null) {
+			ResponseStructure<EmployeeDutyAssignEntity> responseStructure = new ResponseStructure<>();
+			responseStructure.setStatus(HttpStatus.OK.value());
+			responseStructure.setMessage("Successfully fetched");
+			responseStructure.setData(assign);
+			return new ResponseEntity<ResponseStructure<EmployeeDutyAssignEntity>>(responseStructure, HttpStatus.OK);
+		}
+		throw new IdNotFoundByDutyAssign("duty assign object is not found for"+dutyAssignId);
+
 
 	}
 

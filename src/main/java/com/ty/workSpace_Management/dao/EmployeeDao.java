@@ -52,7 +52,11 @@ public class EmployeeDao {
 
 	
 	public List<EmployeeEntity> employeesBasedOnRole(String role){
-		return repo.employeesBasedOnRole(role);
+		List<EmployeeEntity> list=repo.employeesBasedOnRole(role);
+		if(list.isEmpty())
+		return null;
+		else
+			return list;
 	}
 	public EmployeeEntity getEmployeeByEmail(String email) {
 		return repo.getEmployeeByEmail(email);

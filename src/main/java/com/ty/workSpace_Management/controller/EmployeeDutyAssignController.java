@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,9 +28,10 @@ public class EmployeeDutyAssignController {
 	@PostMapping
 	@ApiOperation(value = "save  employeeDutyAssign", notes = "Api is used to save employeeDutyAssign ")
 	@ApiResponses({ @ApiResponse(code = 201, message = "Sucessfully  employeeDutyAssign is saved") })
-	public ResponseEntity<ResponseStructure<EmployeeDutyAssignEntity>> saveEmployeeDutyAssign(
+	public ResponseEntity<ResponseStructure<EmployeeDutyAssignEntity>> 
+	saveEmployeeDutyAssign(@RequestBody EmployeeDutyAssignEntity dutyAssign,
 			 @RequestParam String managerId, @RequestParam String clientID,  @RequestParam String employeeId ) {
-		return duty.saveEmployeeDuttyAssign(managerId,clientID,employeeId);
+		return duty.saveEmployeeDuttyAssign(managerId,clientID,employeeId,dutyAssign);
 	}
 
 	@PutMapping

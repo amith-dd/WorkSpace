@@ -55,6 +55,7 @@ public class DtoConfig {
 		employee.setEmployeeEmail(employee1.getEmployeeEmail());
 		employee.setEmployeeId(employee1.getEmployeeId());
 		employee.setEmployeeName(employee1.getEmployeeName());
+		employee.setEmployeePhone(employee1.getEmployeePhone());
 		employee.setEmployeeRole(employee1.getEmployeeRole());
 		return employee;
 	}
