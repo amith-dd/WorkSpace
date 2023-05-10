@@ -62,7 +62,7 @@ public class FloorService {
 
 			return new ResponseEntity<ResponseStructure<FloorEntity>>(responseStructure, HttpStatus.OK);
 		}
-		throw new  IdNotFoundByFloor("floor id "+floorId+"is not available to update");
+		throw new  IdNotFoundByFloor("floor id "+floorId+"is not available to display");
 	}
 
 }

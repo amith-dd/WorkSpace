@@ -48,8 +48,7 @@ public class AdminEntity {
 	private long adminPhone;
 	@NotBlank(message = "Password is required")
 	@Size(min = 6, max = 20, message = "Password must be between 6 and 20 characters")
-	@Pattern(regexp = "^(?=.[a-zA-Z])(?=.\\d)(?=.[@#$%^&+=!]).$", message = "must contain at least one letter, one number, one special character")
-	private String clientPassword;
+	@Pattern(regexp =  "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$", message = "must contain at least one letter, one number, one special character")
 	private String adminPwd;
 	@OneToOne(cascade = CascadeType.ALL)
 	private AddressEntity address;

@@ -46,6 +46,7 @@ public class DtoConfig {
 		client.setClientName(client1.getClientName());
 		client.setClientPhone(client1.getClientPhone());
 		client.setEmployeeDuty(client1.getEmployeeDuty());
+		client.setClientEmail(client1.getClientEmail());
 		return client;
 	}
 	

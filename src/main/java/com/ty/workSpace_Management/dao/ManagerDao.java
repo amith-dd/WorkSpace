@@ -38,6 +38,9 @@ public class ManagerDao {
            if(manager.getManagerName()==null) {
         	   manager.setManagerName(a.getManagerName());
            }
+           if(manager.getManagerPhone()==0) {
+        	   manager.setManagerPhone(a.getManagerPhone());
+           }
 		              
 		 
 		 
