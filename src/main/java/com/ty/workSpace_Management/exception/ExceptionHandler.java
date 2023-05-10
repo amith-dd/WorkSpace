@@ -272,5 +272,44 @@ public class ExceptionHandler extends ResponseEntityExceptionHandler {
 		structure.setData("building is not found based on rating");
 		return new ResponseEntity<ResponseStructure<String>>(structure, HttpStatus.NOT_FOUND);
 	}
+	
+	@org.springframework.web.bind.annotation.ExceptionHandler(IdNotFoundByFloor.class)
+	public ResponseEntity<ResponseStructure<String>> noSuchElementException(
+			IdNotFoundByFloor exception) {
+		ResponseStructure<String> structure = new ResponseStructure<String>();
+
+		structure.setMessage(exception.getMessage());
+		structure.setStatus(HttpStatus.NOT_FOUND.value());
+		structure.setData("floor id  is not found ");
+		return new ResponseEntity<ResponseStructure<String>>(structure, HttpStatus.NOT_FOUND);
+	}
+	
+	@org.springframework.web.bind.annotation.ExceptionHandler(IdNotFoundByWorkSpace.class)
+	public ResponseEntity<ResponseStructure<String>> noSuchElementException(
+			IdNotFoundByWorkSpace exception) {
+		ResponseStructure<String> structure = new ResponseStructure<String>();
+
+		structure.setMessage(exception.getMessage());
+		structure.setStatus(HttpStatus.NOT_FOUND.value());
+		structure.setData("WorkSpace id  is not found ");
+		return new ResponseEntity<ResponseStructure<String>>(structure, HttpStatus.NOT_FOUND);
+	}
+	
+	@org.springframework.web.bind.annotation.ExceptionHandler(IdNotFoundByDutyAssign.class)
+	public ResponseEntity<ResponseStructure<String>> noSuchElementException(
+			IdNotFoundByDutyAssign exception) {
+		ResponseStructure<String> structure = new ResponseStructure<String>();
+
+		structure.setMessage(exception.getMessage());
+		structure.setStatus(HttpStatus.NOT_FOUND.value());
+		structure.setData("EmployeeDutyAssign id  is not found ");
+		return new ResponseEntity<ResponseStructure<String>>(structure, HttpStatus.NOT_FOUND);
+	}
+	
+	
+	
+
+	
+	
 
 }

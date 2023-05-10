@@ -90,7 +90,7 @@ throw new IdNotFoundByManager("manager id "+managerId+" is not available");
 		return new ResponseEntity<ResponseStructure<WorkSpaceEntity>>(responseStructure, HttpStatus.OK);
           }
 			
-			throw new IdNotFoundByWorkSpace("workspace is not available to update");
+			throw new IdNotFoundByWorkSpace("workspace is not available to retrieve");
 	}
 
 	public ResponseEntity<ResponseStructure<List<WorkSpaceEntity>>> getWorkSpaceByCapacity(

@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class WorkSpaceManagementApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(WorkSpaceManagementApplication.class, args);
+
 	}
 
 }

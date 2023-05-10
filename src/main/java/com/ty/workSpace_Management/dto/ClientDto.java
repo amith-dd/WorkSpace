@@ -16,6 +16,8 @@ public class ClientDto {
 	
 	private String clientId;
 	private String clientName;
+	private String clientEmail;
+
 	private long clientPhone;
 	private AddressEntity address;
 	private List<ClientBookingEntity> booking;

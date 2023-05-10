@@ -91,7 +91,7 @@ public class ClientService {
 			if (client.getClientPassword().equals(pwd)) {
 				ResponseStructure<ClientDto> structure = new ResponseStructure<>();
 				structure.setData(dto.clientEntityToDto(client));
-				structure.setMessage("client found successfully");
+				structure.setMessage("client login successfully");
 				structure.setStatus(HttpStatus.OK.value());
 				return new ResponseEntity<ResponseStructure<ClientDto>>(structure, HttpStatus.OK);
 

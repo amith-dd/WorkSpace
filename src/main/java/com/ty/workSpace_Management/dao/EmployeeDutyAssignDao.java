@@ -41,9 +41,11 @@ public class EmployeeDutyAssignDao {
 	}
 
 	public EmployeeDutyAssignEntity findDutyAssign(String employDutyAssignId) {
-		EmployeeDutyAssignEntity employee = repo.findById(employDutyAssignId).get();
-
-		return employee;
+		
+           if(repo.findById(employDutyAssignId).isPresent())
+		return repo.findById(employDutyAssignId).get();
+           else
+        	   return null;
 
 	}
 

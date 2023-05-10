@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.ty.workSpace_Management.dao.BuildingDao;
@@ -21,7 +22,7 @@ import com.ty.workSpace_Management.entity.WorkSpaceEntity;
 import com.ty.workSpace_Management.entity.util.ResponseStructure;
 import com.ty.workSpace_Management.exception.ClientBookingNotFound;
 import com.ty.workSpace_Management.exception.ClientNotFound;
-import com.ty.workSpace_Management.exception.IdNotFoundByBuilding;
+import com.ty.workSpace_Management.exception.IdNotFoundByWorkSpace;
 
 @Service
 public class ClientBookingService {
@@ -31,7 +32,9 @@ public class ClientBookingService {
 	private ClientDao cdao;
 	@Autowired
 	private BuildingDao bdao;
-
+  
+	
+	
 	@Autowired
 	private WorkSpaceEntityDao wdao;
 
@@ -61,6 +64,9 @@ public class ClientBookingService {
 				clientBookings.addAll(client.getBookings());
 				client.setBookings(clientBookings);
 				cdao.updateClientEntity(client, clientId);
+				
+				space.setWorkSpaceAvailability("Booked");
+				wdao.updateWorkSpaceEntity(workSpaceId, space);
 				ResponseStructure<ClientBookingEntity> structure = new ResponseStructure<>();
 				structure.setData(clientBookin);
 				structure.setMessage("client booking saved success");
@@ -68,11 +74,11 @@ public class ClientBookingService {
 				return new ResponseEntity<ResponseStructure<ClientBookingEntity>>(structure, HttpStatus.CREATED);
 
 			}
-			throw new IdNotFoundByBuilding("building not found ");
+			throw new IdNotFoundByWorkSpace(workSpaceId+" id is not found to book ");
 			
 
 		}
-		throw new ClientNotFound("client not found for " + clientId);
+		throw new ClientNotFound(clientId+" id is not found to book ");
 
 	}
 
@@ -163,5 +169,29 @@ public class ClientBookingService {
 		throw new ClientBookingNotFound("client booking not found");
 
 	}
+	
+    @Scheduled(fixedDelay = 5000)
+	public void checkEndBooking() {
+		List<ClientBookingEntity>list=dao.listofClientBookings();
+		if (list != null) {
+			 
+	        LocalDate currentDate = LocalDate.now();
+
+              for (ClientBookingEntity clientBookingEntity : list) {
+				       if(clientBookingEntity.getEndDate().equals(currentDate)) {
+				    	   clientBookingEntity.getWorkspaces().setWorkSpaceAvailability("AVAILABLE");
+						      dao.updateClientBooking(clientBookingEntity, clientBookingEntity.getId());
+				       }
+			}
+
+			
+		}
+		
+
+	}
+	
+	
+	
+	
 
 }

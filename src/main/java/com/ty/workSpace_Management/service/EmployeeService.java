@@ -85,7 +85,7 @@ public class EmployeeService {
 			structure.setStatus(HttpStatus.FOUND.value());
 			return new ResponseEntity<ResponseStructure<EmployeeDto>>(structure, HttpStatus.FOUND);
 		}
-		throw new EmployeeNotFound("employee not found for given email");
+		throw new EmployeeNotFound("employee not found for given id");
 	}
 
 	public ResponseEntity<ResponseStructure<List<EmployeeDto>>> findEmployeesByRole(String role) {
@@ -103,7 +103,7 @@ public class EmployeeService {
 			structure.setStatus(HttpStatus.FOUND.value());
 			return new ResponseEntity<ResponseStructure<List<EmployeeDto>>>(structure, HttpStatus.FOUND);
 		}
-		throw new EmployeeNotFound("employee not found for given email");
+		throw new EmployeeNotFound("employee not found for given role "+role);
 	}
 	
 	public ResponseEntity<ResponseStructure<EmployeeEntity>> getEmployeePasswordByEmail(String email) {

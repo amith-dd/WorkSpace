@@ -1,5 +1,6 @@
 package com.ty.workSpace_Management.dao;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +36,16 @@ public class ClientBookingDao {
 		}else {
 			return null;
 		}
+	}
+	
+	
+	public List<ClientBookingEntity> listofClientBookings(){
+		List<ClientBookingEntity> list	=repo.findAll();
+		if(list.isEmpty()) {
+			return null;
+		}
+		else
+			return list;
+		
 	}
 }
