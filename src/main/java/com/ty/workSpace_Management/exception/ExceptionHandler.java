@@ -306,6 +306,16 @@ public class ExceptionHandler extends ResponseEntityExceptionHandler {
 		return new ResponseEntity<ResponseStructure<String>>(structure, HttpStatus.NOT_FOUND);
 	}
 	
+	@org.springframework.web.bind.annotation.ExceptionHandler(NoSuchWorkSpaceFoundForBooking.class)
+	public ResponseEntity<ResponseStructure<String>> noSuchElementException(
+			NoSuchWorkSpaceFoundForBooking exception) {
+		ResponseStructure<String> structure = new ResponseStructure<String>();
+
+		structure.setMessage(exception.getMessage());
+		structure.setStatus(HttpStatus.NOT_FOUND.value());
+		structure.setData("WORKSPACE IS ALREADY BOOKED");
+		return new ResponseEntity<ResponseStructure<String>>(structure, HttpStatus.NOT_FOUND);
+	}
 	
 	
 
