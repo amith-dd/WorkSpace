@@ -22,6 +22,7 @@ import com.ty.workSpace_Management.entity.WorkSpaceEntity;
 import com.ty.workSpace_Management.entity.util.ResponseStructure;
 import com.ty.workSpace_Management.exception.ClientBookingNotFound;
 import com.ty.workSpace_Management.exception.ClientNotFound;
+import com.ty.workSpace_Management.exception.IdNotFoundByBuilding;
 import com.ty.workSpace_Management.exception.IdNotFoundByWorkSpace;
 import com.ty.workSpace_Management.exception.NoSuchWorkSpaceFoundForBooking;
 
@@ -106,7 +107,7 @@ public class ClientBookingService {
 			structure.setStatus(HttpStatus.OK.value());
 			return new ResponseEntity<ResponseStructure<ClientBookingEntity>>(structure, HttpStatus.OK);
 		}
-		throw new ClientBookingNotFound("client booking not found");
+		throw new ClientBookingNotFound(id+" client booking not found");
 
 	}
 
@@ -141,10 +142,9 @@ public class ClientBookingService {
 
 				return new ResponseEntity<ResponseStructure<ClientBookingEntity>>(structure, HttpStatus.OK);
 			}
-			// change to building id not found
-			return null;
+			throw new IdNotFoundByBuilding(buildingId+"id is not found for rating");
 		}
-		throw new ClientBookingNotFound("client booking not found");
+		throw new ClientBookingNotFound(clientBookingId+" booking not found to update rating");
 
 	}
 
