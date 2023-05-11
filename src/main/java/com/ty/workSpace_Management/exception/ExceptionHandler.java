@@ -269,7 +269,7 @@ public class ExceptionHandler extends ResponseEntityExceptionHandler {
 
 		structure.setMessage(exception.getMessage());
 		structure.setStatus(HttpStatus.NOT_FOUND.value());
-		structure.setData("building is not found based on rating");
+		structure.setData("service is not available based on the name");
 		return new ResponseEntity<ResponseStructure<String>>(structure, HttpStatus.NOT_FOUND);
 	}
 	
