@@ -38,7 +38,7 @@ public class AddressController {
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "succesfully updated"),
 			@ApiResponse(code = 400, message = "Id not found for the given address ID") })
 	@PutMapping
-	public ResponseEntity<ResponseStructure<AddressEntity>> updateAddress(@Valid @RequestBody AddressEntity address,@RequestParam String addressId){
+	public ResponseEntity<ResponseStructure<AddressEntity>> updateAddress( @RequestBody AddressEntity address,@RequestParam String addressId){
 		return service.updateAddress(address, addressId);			
 	}
 	
