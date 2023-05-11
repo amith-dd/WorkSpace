@@ -317,6 +317,16 @@ public class ExceptionHandler extends ResponseEntityExceptionHandler {
 		return new ResponseEntity<ResponseStructure<String>>(structure, HttpStatus.NOT_FOUND);
 	}
 	
+	@org.springframework.web.bind.annotation.ExceptionHandler(NoSuchListBasedOnCapacity.class)
+	public ResponseEntity<ResponseStructure<String>> noSuchElementException(
+			NoSuchListBasedOnCapacity exception) {
+		ResponseStructure<String> structure = new ResponseStructure<String>();
+
+		structure.setMessage(exception.getMessage());
+		structure.setStatus(HttpStatus.NOT_FOUND.value());
+		structure.setData("WORKSPACE IS NOT AVAILABLE BASED ON RANGE PLS CHOOSE ANOTHER RANGE ");
+		return new ResponseEntity<ResponseStructure<String>>(structure, HttpStatus.NOT_FOUND);
+	}
 	
 
 	

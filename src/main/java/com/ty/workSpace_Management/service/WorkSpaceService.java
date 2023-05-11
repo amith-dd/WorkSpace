@@ -18,6 +18,7 @@ import com.ty.workSpace_Management.entity.util.ResponseStructure;
 import com.ty.workSpace_Management.exception.IdNotFoundByFloor;
 import com.ty.workSpace_Management.exception.IdNotFoundByManager;
 import com.ty.workSpace_Management.exception.IdNotFoundByWorkSpace;
+import com.ty.workSpace_Management.exception.NoSuchListBasedOnCapacity;
 
 @Service
 public class WorkSpaceService {
@@ -113,7 +114,7 @@ throw new IdNotFoundByManager("manager id "+managerId+" is not available");
 				count=200;
 			
 		
-	        List<WorkSpaceEntity>list=dao.getByCapacity(a);
+	        List<WorkSpaceEntity>list=dao.getByCapacity(count);
 		if (list != null) {
 		      
 			ResponseStructure<List<WorkSpaceEntity>> responseStructure = new ResponseStructure<>();
@@ -122,7 +123,7 @@ throw new IdNotFoundByManager("manager id "+managerId+" is not available");
 			responseStructure.setData(list);
 			return new ResponseEntity<ResponseStructure<List<WorkSpaceEntity>>>(responseStructure, HttpStatus.OK);
 		}
-		return null;
+		 throw new NoSuchListBasedOnCapacity("no workspace is available based on "+a+" range");
 
 	}
 
