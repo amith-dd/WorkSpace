@@ -31,5 +31,7 @@ public class FloorEntity {
 	private String floorId;
 	@OneToMany
 	private List<WorkSpaceEntity> workSpace;
-
+	
+	
+	
 }
