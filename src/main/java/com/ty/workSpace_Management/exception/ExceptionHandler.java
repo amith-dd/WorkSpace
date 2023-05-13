@@ -269,8 +269,67 @@ public class ExceptionHandler extends ResponseEntityExceptionHandler {
 
 		structure.setMessage(exception.getMessage());
 		structure.setStatus(HttpStatus.NOT_FOUND.value());
-		structure.setData("building is not found based on rating");
+		structure.setData("service is not available based on the name");
 		return new ResponseEntity<ResponseStructure<String>>(structure, HttpStatus.NOT_FOUND);
 	}
+	
+	@org.springframework.web.bind.annotation.ExceptionHandler(IdNotFoundByFloor.class)
+	public ResponseEntity<ResponseStructure<String>> noSuchElementException(
+			IdNotFoundByFloor exception) {
+		ResponseStructure<String> structure = new ResponseStructure<String>();
+
+		structure.setMessage(exception.getMessage());
+		structure.setStatus(HttpStatus.NOT_FOUND.value());
+		structure.setData("floor id  is not found ");
+		return new ResponseEntity<ResponseStructure<String>>(structure, HttpStatus.NOT_FOUND);
+	}
+	
+	@org.springframework.web.bind.annotation.ExceptionHandler(IdNotFoundByWorkSpace.class)
+	public ResponseEntity<ResponseStructure<String>> noSuchElementException(
+			IdNotFoundByWorkSpace exception) {
+		ResponseStructure<String> structure = new ResponseStructure<String>();
+
+		structure.setMessage(exception.getMessage());
+		structure.setStatus(HttpStatus.NOT_FOUND.value());
+		structure.setData("WorkSpace id  is not found ");
+		return new ResponseEntity<ResponseStructure<String>>(structure, HttpStatus.NOT_FOUND);
+	}
+	
+	@org.springframework.web.bind.annotation.ExceptionHandler(IdNotFoundByDutyAssign.class)
+	public ResponseEntity<ResponseStructure<String>> noSuchElementException(
+			IdNotFoundByDutyAssign exception) {
+		ResponseStructure<String> structure = new ResponseStructure<String>();
+
+		structure.setMessage(exception.getMessage());
+		structure.setStatus(HttpStatus.NOT_FOUND.value());
+		structure.setData("EmployeeDutyAssign id  is not found ");
+		return new ResponseEntity<ResponseStructure<String>>(structure, HttpStatus.NOT_FOUND);
+	}
+	
+	@org.springframework.web.bind.annotation.ExceptionHandler(NoSuchWorkSpaceFoundForBooking.class)
+	public ResponseEntity<ResponseStructure<String>> noSuchElementException(
+			NoSuchWorkSpaceFoundForBooking exception) {
+		ResponseStructure<String> structure = new ResponseStructure<String>();
+
+		structure.setMessage(exception.getMessage());
+		structure.setStatus(HttpStatus.NOT_FOUND.value());
+		structure.setData("WORKSPACE IS ALREADY BOOKED");
+		return new ResponseEntity<ResponseStructure<String>>(structure, HttpStatus.NOT_FOUND);
+	}
+	
+	@org.springframework.web.bind.annotation.ExceptionHandler(NoSuchListBasedOnCapacity.class)
+	public ResponseEntity<ResponseStructure<String>> noSuchElementException(
+			NoSuchListBasedOnCapacity exception) {
+		ResponseStructure<String> structure = new ResponseStructure<String>();
+
+		structure.setMessage(exception.getMessage());
+		structure.setStatus(HttpStatus.NOT_FOUND.value());
+		structure.setData("WORKSPACE IS NOT AVAILABLE BASED ON RANGE PLS CHOOSE ANOTHER RANGE ");
+		return new ResponseEntity<ResponseStructure<String>>(structure, HttpStatus.NOT_FOUND);
+	}
+	
+
+	
+	
 
 }

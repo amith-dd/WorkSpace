@@ -180,7 +180,7 @@ public class BuildingService {
 				ResponseStructure<BuildingDto> structure = new ResponseStructure<>();
 
 			   structure.setData(dto.getbuilding(building));
-			   structure.setMessage("admin  found successfully to save building");
+			   structure.setMessage("admin  and manager  found successfully to assign building to manager");
 				structure.setStatus(HttpStatus.OK.value());
 				return new ResponseEntity<ResponseStructure<BuildingDto>>(structure, HttpStatus.OK);
 			   

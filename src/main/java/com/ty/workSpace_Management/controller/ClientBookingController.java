@@ -38,7 +38,7 @@ public class ClientBookingController {
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "succesfully updated"),
 			@ApiResponse(code = 400, message = "Id not found for the given client booking ID") })
 	@PutMapping
-	public ResponseEntity<ResponseStructure<ClientBookingEntity>> updateClientBooking(@Valid @RequestBody ClientBookingEntity clientBooking,@RequestParam String id){
+	public ResponseEntity<ResponseStructure<ClientBookingEntity>> updateClientBooking( @RequestBody ClientBookingEntity clientBooking,@RequestParam String id){
 		return service.updateClientBooking(clientBooking, id);
 				
 	}

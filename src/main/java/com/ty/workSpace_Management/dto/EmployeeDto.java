@@ -14,5 +14,6 @@ public class EmployeeDto {
 	private String employeeName;
 	private String employeeEmail;
 	private String employeeRole;
+	private long employeePhone;
 	private AddressEntity address;
 }
