@@ -10,14 +10,10 @@ import org.springframework.stereotype.Service;
 
 import com.ty.workSpace_Management.dao.BuildingDao;
 import com.ty.workSpace_Management.dao.ServiceDao;
-import com.ty.workSpace_Management.dto.AdminDto;
-import com.ty.workSpace_Management.dto.BuildingDto;
-import com.ty.workSpace_Management.entity.AdminEntity;
 import com.ty.workSpace_Management.entity.BuildingEntity;
 import com.ty.workSpace_Management.entity.ServiceEntity;
 import com.ty.workSpace_Management.entity.util.ResponseStructure;
 import com.ty.workSpace_Management.exception.IdNotFoundByBuilding;
-import com.ty.workSpace_Management.exception.NoBuilidngFoundbasedOnRatingException;
 import com.ty.workSpace_Management.exception.NoSuchElementFoundByServiceNameException;
 
 @Service

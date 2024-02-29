@@ -15,6 +15,7 @@ import org.hibernate.annotations.Parameter;
 
 import com.ty.workSpace_Management.entity.util.CustomIdGenerator;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 @Entity
 @Data
@@ -27,18 +28,19 @@ public class AddressEntity {
 			@Parameter(name = CustomIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
 	private String addressId;
 	@Positive
+	@ApiModelProperty(required = true)
 	private int flatNumber;
 	@NotNull(message = "street cannot be null")
 	@NotBlank(message = "street cannot be blank")
+	@ApiModelProperty(required = true)
 	private String street;
 	@NotNull(message = "state cannot be null")
 	@NotBlank(message = "state cannot be blank")
+	@ApiModelProperty(required = true)
 	private String state;
 	@Min(value= 110000, message = " pincode must be valid" )
 	@Max(value= 990000, message = " pincode must be valid" )
 	private int pincode;
 	
-	
-	
-	
+
 }

@@ -40,7 +40,7 @@ public class AdminController {
 	@ApiOperation(value = "update  Admin", notes = "Api is used to update Admin ")
 	@ApiResponses({@ApiResponse(code=201,message="Sucessfully  admimn is updated"),
 		@ApiResponse(code=404,message="  admimn id is not found to update")})
-	public ResponseEntity<ResponseStructure<AdminDto>> updateAdmin(@RequestBody AdminEntity admin,@RequestParam  String adminId) {
+	public ResponseEntity<ResponseStructure<AdminDto>> updateAdmin(@Valid @RequestBody AdminEntity admin,@RequestParam  String adminId) {
 		return service.updateAdmin(admin, adminId);
 	}
 	

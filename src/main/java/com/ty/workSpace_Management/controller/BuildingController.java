@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ty.workSpace_Management.dto.AdminDto;
 import com.ty.workSpace_Management.dto.BuildingDto;
-import com.ty.workSpace_Management.entity.AdminEntity;
 import com.ty.workSpace_Management.entity.BuildingEntity;
 import com.ty.workSpace_Management.entity.util.ResponseStructure;
 import com.ty.workSpace_Management.service.BuildingService;
@@ -31,8 +29,7 @@ public class BuildingController {
 
 	@Autowired
 	private BuildingService service;
-	@Autowired
-	private BuildingDto dto;
+	
 
 	@PostMapping
 	@ApiOperation(value = "save  building", notes = "Api is used to save building ")

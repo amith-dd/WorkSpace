@@ -26,11 +26,12 @@ public class WorkSpaceConfig {
 		List<VendorExtension> extensions = new ArrayList<VendorExtension>();
 		ApiInfo apiInfo = new ApiInfo("workSpace App", "workSpace App V1.0", "Version 1.2",
 				"www.testyantraglobal.com", contact, "testYtantralicence@asdf", "www.testyantraterms.com", extensions);
-
+		
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors.basePackage("com.ty.workSpace_Management")).build()
 				.apiInfo(apiInfo).useDefaultResponseMessages(false);
+		
+		
 	}
-	
-	
+
 }

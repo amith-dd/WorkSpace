@@ -11,6 +11,7 @@ public class WorkSpaceManagementApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(WorkSpaceManagementApplication.class, args);
+		
 
 	}
 
