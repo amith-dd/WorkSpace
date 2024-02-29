@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.ty.workSpace_Management.entity.FloorEntity;
 import com.ty.workSpace_Management.entity.WorkSpaceEntity;
 import com.ty.workSpace_Management.repo.WorkSpaceRepo;
 

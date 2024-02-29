@@ -32,5 +32,7 @@ public class FloorEntity {
 	private String floorId;
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<WorkSpaceEntity> workSpace;
-
+	
+	
+	
 }

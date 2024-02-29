@@ -164,6 +164,7 @@ public class ClientBookingService {
 
 	@Scheduled(cron = "0 0 0 * * ?")
 	public void checkEndBooking() {
+		
 		List<ClientBookingEntity> list = dao.listofClientBookings();
 		if (list != null) {
 
@@ -175,9 +176,10 @@ public class ClientBookingService {
 					dao.updateClientBooking(clientBookingEntity, clientBookingEntity.getId());
 				}
 			}
-
-		}
+	
+			}
 
 	}
+	
 
 }

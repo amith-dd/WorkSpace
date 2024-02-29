@@ -13,11 +13,13 @@ public interface BuildingRepo extends JpaRepository<BuildingEntity, String> {
 	@Query("select a from  BuildingEntity a order by a.rating desc")
 	public List<BuildingEntity> fingByRating();
 	
+	
 	@Query("select b from  BuildingEntity b JOIN b.address a where a.pincode = :pincode")
 	public List<BuildingEntity>findBuilinglistBasedOnPin(@Param("pincode") int pincode);
 	
 	
 	@Query("select a from  BuildingEntity a where a.buildingName= ?1")
 	public List<BuildingEntity> findbyName(String name);
-
+	
+	
 }

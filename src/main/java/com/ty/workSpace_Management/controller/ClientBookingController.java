@@ -31,6 +31,7 @@ public class ClientBookingController {
 	@PostMapping
 	public ResponseEntity<ResponseStructure<ClientBookingEntity>> saveClientBooking(@Valid @RequestBody ClientBookingEntity clientbooking,@RequestParam String clientId,@RequestParam String workSpaceId){
 		return service.saveClientBooking(workSpaceId,clientId, clientbooking);
+		
 	}
 	
 	@ApiOperation(value = "Update clientBooking", notes = "API is used to update clientbooking for given clientbooking Id")
@@ -48,6 +49,7 @@ public class ClientBookingController {
 	@PutMapping("/rating")
 	public ResponseEntity<ResponseStructure<ClientBookingEntity>> giveClientBookingRating(@RequestParam String buildingId,@RequestParam String clientBookingId,@RequestParam double rating){
 		return service.giveRating(buildingId,rating,clientBookingId);
+		
 	}
 	
 	@ApiOperation(value = "find clientBooking", notes = "API is used to find client booking based on id")
@@ -56,9 +58,8 @@ public class ClientBookingController {
 	@GetMapping
 	public ResponseEntity<ResponseStructure<ClientBookingEntity>> findClientBooking(@RequestParam String id){
 		return service.findClientBooking(id);
+		
 	}
-	
-	
 	
 	
 }
